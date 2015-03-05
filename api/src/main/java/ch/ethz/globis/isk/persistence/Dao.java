@@ -60,7 +60,7 @@ public interface Dao<K extends Serializable, T extends DomainObject> {
     public T findOneByFilter(Map<String, Filter> filterMap);
 
     /**
-     * Cont all objects that match all of the filters in the filterMap.
+     * Count all objects that match all of the filters in the filterMap.
      * @param filterMap             The set of filters.
      * @return                      The number of objects in the database that match the set of filters.
      */

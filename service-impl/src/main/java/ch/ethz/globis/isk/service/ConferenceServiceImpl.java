@@ -36,7 +36,6 @@ public class ConferenceServiceImpl extends BaseServiceImpl<String, Conference> i
     public Iterable<Conference> findByName(String name, List<OrderFilter> orderConditions, int start, int size) {
         Map<String, Filter> filterMap = new HashMap<>();
         filterMap.put("name", new Filter(Operator.STRING_MATCH, name));
-
         return conferenceDao.findAllByFilter(filterMap, orderConditions, start, size);
     }
 

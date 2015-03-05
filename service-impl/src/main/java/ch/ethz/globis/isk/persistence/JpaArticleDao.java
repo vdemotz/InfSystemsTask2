@@ -28,11 +28,13 @@ public class JpaArticleDao extends JpaDao<String, Article> implements ArticleDao
     public Article findOneByTitle(String title) {
         Map<String, Filter> filterMap = new HashMap<>();
         filterMap.put("title", new Filter(Operator.EQUAL, title));
+        //TODO Hard coded string! ? ! O.O
         return findOneByFilter(filterMap);
     }
 
     @Override
     public List<Article> findByJournalEditionOrderedByYear(String journalEditionId) {
         return queryByReferenceIdOrderByYear("Article", "journalEdition", journalEditionId);
+        //TODO Same exclamation!
     }
 }

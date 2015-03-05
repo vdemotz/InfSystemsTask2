@@ -3,12 +3,15 @@ package ch.ethz.globis.isk.persistence;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import com.db4o.ObjectContainer;
+import com.db4o.query.Predicate;
+import com.db4o.query.Query;
 
 import ch.ethz.globis.isk.config.PersistenceConfig;
 import ch.ethz.globis.isk.domain.DomainObject;
@@ -24,7 +27,18 @@ public abstract class JpaDao<K extends Serializable, T extends DomainObject> imp
 
     @Override
     public long countAllByFilter(Map<String, Filter> filterMap) {
-        return -1;
+    	
+//    	//actually, should be recursiv
+//    	Query query = oc.query();
+//    	query.constrain(this.getClass());
+//    	String[] set = (String[]) filterMap.keySet().toArray();
+//    	for (int i = 0; i < set.length; i++) {
+//    		query.descend(set[i]).constrain(filterMap.get(set[i]));
+//    		
+//    	}
+//    	
+//    	return query.execute().size();
+    	return -1;
     }
 
     @Override
@@ -85,4 +99,9 @@ public abstract class JpaDao<K extends Serializable, T extends DomainObject> imp
     protected List<T> queryByReferenceIdOrderByYear(String entity, String referenceName, String referenceId) {
     	return null;
     }
+    
+    ////
+    //Private methods
+    ////
+   
 }
