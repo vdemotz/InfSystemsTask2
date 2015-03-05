@@ -3,11 +3,14 @@ package ch.ethz.globis.isk.persistence;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
 import ch.ethz.globis.isk.domain.Proceedings;
 import ch.ethz.globis.isk.domain.jpa.JpaProceedings;
 import ch.ethz.globis.isk.util.Filter;
 import ch.ethz.globis.isk.util.Operator;
 
+@Repository
 public class JpaProceedingsDao extends JpaDao<String, Proceedings> implements ProceedingsDao {
 
     @Override

@@ -3,14 +3,19 @@ package ch.ethz.globis.isk.persistence;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
+
 import com.db4o.ObjectContainer;
+
 import ch.ethz.globis.isk.config.PersistenceConfig;
 import ch.ethz.globis.isk.domain.DomainObject;
 import ch.ethz.globis.isk.util.Filter;
 import ch.ethz.globis.isk.util.OrderFilter;
 
+@Repository
 public abstract class JpaDao<K extends Serializable, T extends DomainObject> implements Dao<K, T> {
 	
     @Autowired

@@ -3,11 +3,14 @@ package ch.ethz.globis.isk.persistence;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
 import ch.ethz.globis.isk.domain.Book;
 import ch.ethz.globis.isk.domain.jpa.JpaBook;
 import ch.ethz.globis.isk.util.Filter;
 import ch.ethz.globis.isk.util.Operator;
 
+@Repository
 public class JpaBookDao extends JpaDao<String, Book> implements BookDao {
     @Override
     protected Class<JpaBook> getStoredClass() {

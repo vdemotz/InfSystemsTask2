@@ -11,6 +11,7 @@ import java.util.List;
 @Service
 public class ArticleServiceImpl extends BaseServiceImpl<String, Article> implements ArticleService {
 
+	@Autowired
     private ArticleDao articleDao;
 
     @Autowired

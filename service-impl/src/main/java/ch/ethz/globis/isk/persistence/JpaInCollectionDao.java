@@ -4,11 +4,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
 import ch.ethz.globis.isk.domain.InCollection;
 import ch.ethz.globis.isk.domain.jpa.JpaInCollection;
 import ch.ethz.globis.isk.util.Filter;
 import ch.ethz.globis.isk.util.Operator;
 
+@Repository
 public class JpaInCollectionDao extends JpaDao<String, InCollection> implements InCollectionDao  {
 
     @Override

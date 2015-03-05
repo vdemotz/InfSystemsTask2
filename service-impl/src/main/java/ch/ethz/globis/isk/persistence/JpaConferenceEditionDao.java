@@ -2,9 +2,12 @@ package ch.ethz.globis.isk.persistence;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import ch.ethz.globis.isk.domain.ConferenceEdition;
 import ch.ethz.globis.isk.domain.jpa.JpaConferenceEdition;
 
+@Repository
 public class JpaConferenceEditionDao extends JpaDao<String, ConferenceEdition> implements ConferenceEditionDao {
 
     @Override

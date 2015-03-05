@@ -4,11 +4,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
 import ch.ethz.globis.isk.domain.Publication;
 import ch.ethz.globis.isk.domain.jpa.JpaPublication;
 import ch.ethz.globis.isk.util.Filter;
 import ch.ethz.globis.isk.util.Operator;
 
+@Repository
 public class JpaPublicationDao extends JpaDao<String, Publication> implements PublicationDao {
 
     @Override

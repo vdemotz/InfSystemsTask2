@@ -4,12 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import ch.ethz.globis.isk.domain.Conference;
 import ch.ethz.globis.isk.domain.jpa.JpaConference;
 import ch.ethz.globis.isk.util.Filter;
 import ch.ethz.globis.isk.util.Operator;
 
+@Repository
 public class JpaConferenceDao extends JpaDao<String, Conference> implements ConferenceDao {
     @Autowired
     ProceedingsDao proceedingsDao;

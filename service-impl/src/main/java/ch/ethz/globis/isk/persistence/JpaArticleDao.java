@@ -4,11 +4,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
 import ch.ethz.globis.isk.domain.Article;
 import ch.ethz.globis.isk.domain.jpa.JpaArticle;
 import ch.ethz.globis.isk.util.Filter;
 import ch.ethz.globis.isk.util.Operator;
 
+@Repository
 public class JpaArticleDao extends JpaDao<String, Article> implements ArticleDao {
 
     @Override
@@ -32,5 +35,4 @@ public class JpaArticleDao extends JpaDao<String, Article> implements ArticleDao
     public List<Article> findByJournalEditionOrderedByYear(String journalEditionId) {
         return queryByReferenceIdOrderByYear("Article", "journalEdition", journalEditionId);
     }
-
 }
