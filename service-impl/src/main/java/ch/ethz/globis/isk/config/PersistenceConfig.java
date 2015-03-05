@@ -47,8 +47,10 @@ public class PersistenceConfig {
     /**
      * A reference to the ObjectContainer.
      */
-    @Autowired
-    ObjectContainer objectContainer;
+    @Bean
+    public ObjectContainer objectContainer(){
+    	return null;
+    }
     
     /**
      * Qualifier for the ObjectContainer object.
