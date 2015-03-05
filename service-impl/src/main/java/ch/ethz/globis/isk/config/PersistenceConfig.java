@@ -43,6 +43,17 @@ public class PersistenceConfig {
      */
     @Autowired
     Environment environment;
+    
+    /**
+     * A reference to the ObjectContainer.
+     */
+    @Autowired
+    ObjectContainer objectContainer;
+    
+    /**
+     * Qualifier for the ObjectContainer object.
+     */
+    public static final String OC_QUALIFIER = "objectContainer";
 
     /**
      * A Boolean bean whose value determines if the database needs to be cleared on
