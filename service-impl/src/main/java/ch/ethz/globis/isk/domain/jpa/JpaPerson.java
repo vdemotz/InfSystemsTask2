@@ -1,59 +1,74 @@
 package ch.ethz.globis.isk.domain.jpa;
 
-import java.util.Set;
-
-import ch.ethz.globis.isk.domain.InProceedings;
 import ch.ethz.globis.isk.domain.Person;
 import ch.ethz.globis.isk.domain.Publication;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class JpaPerson implements Person {
 
-	@Override
-	public String getId() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    private String id;
+    private String name;
 
-	@Override
-	public void setId(String id) {
-		// TODO Auto-generated method stub
-		
-	}
+    public Set<Publication> authoredPublications;
 
-	@Override
-	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public Set<Publication> editedPublications;
 
-	@Override
-	public void setName(String name) {
-		// TODO Auto-generated method stub
-		
-	}
+    public JpaPerson() {
+        authoredPublications = new HashSet<>();
+        editedPublications = new HashSet<>();
+    }
 
-	@Override
-	public Set<Publication> getAuthoredPublications() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public String getId() {
+        return id;
+    }
 
-	@Override
-	public void setAuthoredPublications(Set<Publication> authoredPublications) {
-		// TODO Auto-generated method stub
-		
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	@Override
-	public Set<Publication> getEditedPublications() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public String getName() {
+        return name;
+    }
 
-	@Override
-	public void setEditedPublications(Set<Publication> editedPublications) {
-		// TODO Auto-generated method stub
-		
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public Set<Publication> getAuthoredPublications() {
+        return authoredPublications;
+    }
+
+    public void setAuthoredPublications(Set<Publication> publications) {
+        this.authoredPublications = publications;
+    }
+
+    public Set<Publication> getEditedPublications() {
+        return editedPublications;
+    }
+
+    public void setEditedPublications(Set<Publication> editedPublications) {
+        this.editedPublications = editedPublications;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Person)) return false;
+
+        Person person = (Person) o;
+
+        if (getId() != null ? !getId().equals(person.getId()) : person.getId() != null) return false;
+        if (getName() != null ? !getName().equals(person.getName()) : person.getName() != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        return result;
+    }
 }

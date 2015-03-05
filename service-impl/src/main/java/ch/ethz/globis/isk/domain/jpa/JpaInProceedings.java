@@ -1,47 +1,41 @@
 package ch.ethz.globis.isk.domain.jpa;
 
-import java.util.Set;
 
 import ch.ethz.globis.isk.domain.InProceedings;
-import ch.ethz.globis.isk.domain.Person;
 import ch.ethz.globis.isk.domain.Proceedings;
 
-public class JpaInProceedings extends JpaPublication implements InProceedings{
+public class JpaInProceedings extends JpaPublication implements InProceedings {
 
-	@Override
-	public String getNote() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    private String note;
+    private String pages;
 
-	@Override
-	public void setNote(String note) {
-		// TODO Auto-generated method stub
-		
-	}
+    private Proceedings proceedings;
 
-	@Override
-	public String getPages() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public JpaInProceedings() {}
 
-	@Override
-	public void setPages(String pages) {
-		// TODO Auto-generated method stub
-		
-	}
+    public String getNote() {
+        return note;
+    }
 
-	@Override
-	public Proceedings getProceedings() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public void setNote(String note) {
+        this.note = note;
+    }
 
-	@Override
-	public void setProceedings(Proceedings proceedings) {
-		// TODO Auto-generated method stub
-		
-	}
+    public String getPages() {
+        return pages;
+    }
+
+    public void setPages(String pages) {
+        this.pages = pages;
+    }
+
+    public Proceedings getProceedings() {
+        return proceedings;
+    }
+
+    @Override
+    public void setProceedings(Proceedings proceedings) {
+        this.proceedings = proceedings;
+    }
 
 }

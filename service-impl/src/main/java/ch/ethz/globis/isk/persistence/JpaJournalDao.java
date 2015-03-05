@@ -1,19 +1,31 @@
 package ch.ethz.globis.isk.persistence;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import ch.ethz.globis.isk.domain.Journal;
+import ch.ethz.globis.isk.domain.jpa.JpaJournal;
+import ch.ethz.globis.isk.util.Filter;
+import ch.ethz.globis.isk.util.Operator;
 
 public class JpaJournalDao extends JpaDao<String, Journal> implements JournalDao {
 
-	@Override
-	public Journal createEntity() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    protected Class<JpaJournal> getStoredClass() {
+        return JpaJournal.class;
+    }
 
-	@Override
-	public Journal findOneByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public Journal findOneByName(String name) {
+        Map<String, Filter> filterMap = new HashMap<>();
+        filterMap.put("name", new Filter(Operator.EQUAL, name));
+        //TODO hard-coded string...
+        return findOneByFilter(filterMap);
+    }
+
+    @Override
+    public Journal createEntity() {
+        return new JpaJournal();
+    }
 
 }

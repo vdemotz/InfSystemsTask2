@@ -1,49 +1,38 @@
 package ch.ethz.globis.isk.domain.jpa;
 
-import java.util.Set;
-
 import ch.ethz.globis.isk.domain.Book;
 import ch.ethz.globis.isk.domain.InCollection;
-import ch.ethz.globis.isk.domain.Person;
 
-public class JpaInCollection extends JpaPublication implements InCollection{
+public class JpaInCollection extends JpaPublication implements InCollection {
 
-	@Override
-	public String getNote() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    private String note;
+    private String pages;
 
-	@Override
-	public void setNote(String note) {
-		// TODO Auto-generated method stub
-		
-	}
+    private Book parentPublication;
 
-	@Override
-	public String getPages() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public JpaInCollection() { }
 
-	@Override
-	public void setPages(String pages) {
-		// TODO Auto-generated method stub
-		
-	}
+    public String getNote() {
+        return note;
+    }
 
-	@Override
-	public Book getParentPublication() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public void setNote(String note) {
+        this.note = note;
+    }
 
-	@Override
-	public void setParentPublication(Book book) {
-		// TODO Auto-generated method stub
-		
-	}
+    public String getPages() {
+        return pages;
+    }
 
+    public void setPages(String pages) {
+        this.pages = pages;
+    }
 
+    public Book getParentPublication() {
+        return parentPublication;
+    }
 
+    public void setParentPublication(Book book) {
+        this.parentPublication = book;
+    }
 }

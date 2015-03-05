@@ -4,54 +4,56 @@ import ch.ethz.globis.isk.domain.Conference;
 import ch.ethz.globis.isk.domain.ConferenceEdition;
 import ch.ethz.globis.isk.domain.Proceedings;
 
-public class JpaConferenceEdition implements ConferenceEdition{
+public class JpaConferenceEdition implements ConferenceEdition {
 
-	@Override
-	public String getId() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    private String id;
 
-	@Override
-	public void setId(String id) {
-		// TODO Auto-generated method stub
-		
-	}
+    private Integer year;
 
-	@Override
-	public Conference getConference() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    private Conference conference;
 
-	@Override
-	public void setConference(Conference conference) {
-		// TODO Auto-generated method stub
-		
-	}
+    private Proceedings proceedings;
 
-	@Override
-	public Integer getYear() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public JpaConferenceEdition() {
+    }
 
-	@Override
-	public void setYear(Integer year) {
-		// TODO Auto-generated method stub
-		
-	}
+    public String getId() {
+        return id;
+    }
 
-	@Override
-	public Proceedings getProceedings() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	@Override
-	public void setProceedings(Proceedings proceedings) {
-		// TODO Auto-generated method stub
-		
-	}
+    public Conference getConference() {
+        return conference;
+    }
 
+    public void setConference(Conference conference) {
+        this.conference = conference;
+    }
+
+    public Proceedings getProceedings() {
+        return proceedings;
+    }
+
+    public void setProceedings(Proceedings proceedings) {
+        this.proceedings = proceedings;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    @Override
+    public String toString() {
+        return "ConferenceEdition{" +
+                "id='" + getId() + '\'' +
+                ", year=" + getYear() +
+                '}';
+    }
 }

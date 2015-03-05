@@ -1,11 +1,14 @@
 package ch.ethz.globis.isk.config;
 
 import ch.ethz.globis.isk.domain.*;
+
 import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
 import com.db4o.config.EmbeddedConfiguration;
 import com.db4o.constraints.UniqueFieldValueConstraint;
+import com.db4o.ta.TransparentActivationSupport;
 import com.db4o.ta.TransparentPersistenceSupport;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -48,8 +51,10 @@ public class PersistenceConfig {
      * A reference to the ObjectContainer.
      */
     @Bean
-    public ObjectContainer objectContainer(){
-    	return null;
+    public ObjectContainer objectContainer(String db4oFilename){
+    	EmbeddedConfiguration config = Db4oEmbedded.newConfiguration();
+    	config.common().add(new TransparentActivationSupport());
+    	return Db4oEmbedded.openFile(config, db4oFilename);
     }
     
     /**

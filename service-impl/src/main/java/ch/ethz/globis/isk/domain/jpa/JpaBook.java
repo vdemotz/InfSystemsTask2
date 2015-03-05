@@ -1,99 +1,86 @@
 package ch.ethz.globis.isk.domain.jpa;
 
-import java.util.Set;
 
 import ch.ethz.globis.isk.domain.Book;
 import ch.ethz.globis.isk.domain.InCollection;
-import ch.ethz.globis.isk.domain.Person;
 import ch.ethz.globis.isk.domain.Publisher;
 import ch.ethz.globis.isk.domain.Series;
+import java.util.HashSet;
+import java.util.Set;
 
-public class JpaBook extends JpaPublication implements Book{
+public class JpaBook extends JpaPublication implements Book {
 
-	@Override
-	public String getCdrom() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    private String cdrom;
+    private Integer month;
+    private String volume;
+    private String isbn;
 
-	@Override
-	public void setCdrom(String cdrom) {
-		// TODO Auto-generated method stub
-		
-	}
+    private Series series;
 
-	@Override
-	public String getIsbn() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    private Publisher publisher;
 
-	@Override
-	public void setIsbn(String isbn) {
-		// TODO Auto-generated method stub
-		
-	}
+    private Set<InCollection> publications;
 
-	@Override
-	public Integer getMonth() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public JpaBook() {
+        publications = new HashSet<>();
+    }
 
-	@Override
-	public void setMonth(Integer month) {
-		// TODO Auto-generated method stub
-		
-	}
+    public String getCdrom() {
+        return cdrom;
+    }
 
-	@Override
-	public Set<InCollection> getPublications() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public void setCdrom(String cdrom) {
+        this.cdrom = cdrom;
+    }
 
-	@Override
-	public void setPublications(Set<InCollection> publications) {
-		// TODO Auto-generated method stub
-		
-	}
+    public String getIsbn() {
+        return isbn;
+    }
 
-	@Override
-	public Publisher getPublisher() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
 
-	@Override
-	public void setPublisher(Publisher publisher) {
-		// TODO Auto-generated method stub
-		
-	}
+    public Integer getMonth() {
+        return month;
+    }
 
-	@Override
-	public Series getSeries() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public void setMonth(Integer month) {
+        this.month = month;
+    }
 
-	@Override
-	public void setSeries(Series series) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public Set<InCollection> getPublications() {
+        return publications;
+    }
 
-	@Override
-	public String getVolume() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public void setPublications(Set<InCollection> publications) {
+        this.publications = publications;
+    }
 
-	@Override
-	public void setVolume(String volume) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public Publisher getPublisher() {
+        return publisher;
+    }
 
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
+    }
 
+    public Series getSeries() {
+        return series;
+    }
 
+    public void setSeries(Series series) {
+        this.series = series;
+    }
+
+    public String getVolume() {
+        return volume;
+    }
+
+    public void setVolume(String volume) {
+        this.volume = volume;
+    }
 }

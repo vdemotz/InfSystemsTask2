@@ -1,46 +1,43 @@
 package ch.ethz.globis.isk.domain.jpa;
 
-import java.util.Set;
-
 import ch.ethz.globis.isk.domain.Conference;
 import ch.ethz.globis.isk.domain.ConferenceEdition;
 
-public class JpaConference implements Conference{
+import java.util.HashSet;
+import java.util.Set;
 
-	@Override
-	public String getId() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+public class JpaConference implements Conference {
 
-	@Override
-	public void setId(String id) {
-		// TODO Auto-generated method stub
-		
-	}
+    private String id;
+    private String name;
 
-	@Override
-	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    Set<ConferenceEdition> editions;
 
-	@Override
-	public void setName(String name) {
-		// TODO Auto-generated method stub
-		
-	}
+    public JpaConference() {
+        editions = new HashSet<>();
+    }
 
-	@Override
-	public Set<ConferenceEdition> getEditions() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public String getId() {
+        return id;
+    }
 
-	@Override
-	public void setEditions(Set<ConferenceEdition> editions) {
-		// TODO Auto-generated method stub
-		
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Set<ConferenceEdition> getEditions() {
+        return editions;
+    }
+
+    public void setEditions(Set<ConferenceEdition> editions) {
+        this.editions = editions;
+    }
 }

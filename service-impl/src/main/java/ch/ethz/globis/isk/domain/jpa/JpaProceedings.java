@@ -1,109 +1,96 @@
 package ch.ethz.globis.isk.domain.jpa;
 
-import java.util.Set;
 
-import ch.ethz.globis.isk.domain.ConferenceEdition;
-import ch.ethz.globis.isk.domain.InProceedings;
-import ch.ethz.globis.isk.domain.Proceedings;
-import ch.ethz.globis.isk.domain.Publisher;
-import ch.ethz.globis.isk.domain.Series;
+import ch.ethz.globis.isk.domain.*;
+import java.util.HashSet;
+import java.util.Set;
 
 public class JpaProceedings extends JpaPublication implements Proceedings {
 
-	@Override
-	public String getNote() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    private String note;
+    private Integer number;
+    private String volume;
+    private String isbn;
 
-	@Override
-	public void setNote(String note) {
-		// TODO Auto-generated method stub
-		
-	}
+    private Publisher publisher;
 
-	@Override
-	public Integer getNumber() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    private Series series;
 
-	@Override
-	public void setNumber(Integer number) {
-		// TODO Auto-generated method stub
-		
-	}
+    private ConferenceEdition conferenceEdition;
 
-	@Override
-	public Publisher getPublisher() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    private Set<InProceedings> publications;
 
-	@Override
-	public void setPublisher(Publisher publisher) {
-		// TODO Auto-generated method stub
-		
-	}
+    public JpaProceedings() {
+        publications = new HashSet<>();
+    }
 
-	@Override
-	public String getVolume() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public String getNote() {
+        return note;
+    }
 
-	@Override
-	public void setVolume(String volume) {
-		// TODO Auto-generated method stub
-		
-	}
+    public void setNote(String note) {
+        this.note = note;
+    }
 
-	@Override
-	public String getIsbn() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public Integer getNumber() {
+        return number;
+    }
 
-	@Override
-	public void setIsbn(String isbn) {
-		// TODO Auto-generated method stub
-		
-	}
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
 
-	@Override
-	public Series getSeries() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public Publisher getPublisher() {
+        return publisher;
+    }
 
-	@Override
-	public void setSeries(Series series) {
-		// TODO Auto-generated method stub
-		
-	}
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
+    }
 
-	@Override
-	public ConferenceEdition getConferenceEdition() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public String getVolume() {
+        return volume;
+    }
 
-	@Override
-	public void setConferenceEdition(ConferenceEdition conferenceEdition) {
-		// TODO Auto-generated method stub
-		
-	}
+    public void setVolume(String volume) {
+        this.volume = volume;
+    }
 
-	@Override
-	public Set<InProceedings> getPublications() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public String getIsbn() {
+        return isbn;
+    }
 
-	@Override
-	public void setPublications(Set<InProceedings> publications) {
-		// TODO Auto-generated method stub
-		
-	}
+    public void setIsbn(String isbn) {
+        if (this.getIsbn() != null) {
+            if (this.getNote() == null) {
+                this.setNote("");
+            }
+            this.setNote(this.getNote() + "\nISBN updated, old value was " + this.getIsbn());
+        }
+        this.isbn = isbn;
+    }
 
+    public Series getSeries() {
+        return series;
+    }
+
+    public void setSeries(Series series) {
+        this.series = series;
+    }
+
+    public ConferenceEdition getConferenceEdition() {
+        return conferenceEdition;
+    }
+
+    public void setConferenceEdition(ConferenceEdition conferenceEdition) {
+        this.conferenceEdition = conferenceEdition;
+    }
+
+    public Set<InProceedings> getPublications() {
+        return publications;
+    }
+
+    public void setPublications(Set<InProceedings> publications) {
+        this.publications = publications;
+    }
 }

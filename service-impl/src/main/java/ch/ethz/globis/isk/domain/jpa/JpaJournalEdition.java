@@ -1,89 +1,86 @@
 package ch.ethz.globis.isk.domain.jpa;
 
-import java.util.Set;
-
 import ch.ethz.globis.isk.domain.Article;
 import ch.ethz.globis.isk.domain.Journal;
 import ch.ethz.globis.isk.domain.JournalEdition;
+import java.util.HashSet;
+import java.util.Set;
 
 public class JpaJournalEdition implements JournalEdition {
 
-	@Override
-	public String getId() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    private String id;
 
-	@Override
-	public void setId(String id) {
-		// TODO Auto-generated method stub
-		
-	}
+    private String number;
+    private String volume;
+    private Integer year;
 
-	@Override
-	public void addArticle(Article article) {
-		// TODO Auto-generated method stub
-		
-	}
+    private Journal journal;
 
-	@Override
-	public Journal getJournal() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    private Set<Article> publications;
 
-	@Override
-	public void setJournal(Journal journal) {
-		// TODO Auto-generated method stub
-		
-	}
+    public JpaJournalEdition() {
+        publications = new HashSet<>();
+    }
 
-	@Override
-	public String getNumber() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public String getId() {
+        return id;
+    }
 
-	@Override
-	public void setNumber(String number) {
-		// TODO Auto-generated method stub
-		
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	@Override
-	public Set<Article> getPublications() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public void addArticle(Article publication) {
+        publications.add(publication);
+    }
 
-	@Override
-	public void setPublications(Set<Article> publications) {
-		// TODO Auto-generated method stub
-		
-	}
+    public Journal getJournal() {
+        return journal;
+    }
 
-	@Override
-	public String getVolume() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public void setJournal(Journal journal) {
+        this.journal = journal;
+    }
 
-	@Override
-	public void setVolume(String volume) {
-		// TODO Auto-generated method stub
-		
-	}
+    public String getNumber() {
+        return number;
+    }
 
-	@Override
-	public Integer getYear() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public void setNumber(String number) {
+        this.number = number;
+    }
 
-	@Override
-	public void setYear(Integer year) {
-		// TODO Auto-generated method stub
-		
-	}
+    public Set<Article> getPublications() {
+        return publications;
+    }
 
+    public void setPublications(Set<Article> publications) {
+        this.publications = publications;
+    }
+
+    public String getVolume() {
+        return volume;
+    }
+
+    public void setVolume(String volume) {
+        this.volume = volume;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    @Override
+    public String toString() {
+        return "JournalEdition{" +
+                "year=" + getYear() +
+                ", volume='" +  getYear() + '\'' +
+                ", number='" +  getYear() + '\'' +
+                ", id='" +  getYear() + '\'' +
+                '}';
+    }
 }

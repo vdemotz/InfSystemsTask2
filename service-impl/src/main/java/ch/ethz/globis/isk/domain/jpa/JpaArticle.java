@@ -1,49 +1,38 @@
 package ch.ethz.globis.isk.domain.jpa;
 
-import java.util.Set;
-
 import ch.ethz.globis.isk.domain.Article;
 import ch.ethz.globis.isk.domain.JournalEdition;
-import ch.ethz.globis.isk.domain.Person;
 
-public class JpaArticle extends JpaPublication implements Article{
+public class JpaArticle extends JpaPublication implements Article {
 
-	@Override
-	public String getCdrom() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    private String cdrom;
+    private String pages;
 
-	@Override
-	public void setCdrom(String cdrom) {
-		// TODO Auto-generated method stub
-		
-	}
+    private JournalEdition journalEdition;
 
-	@Override
-	public JournalEdition getJournalEdition() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public JpaArticle() {};
 
-	@Override
-	public void setJournalEdition(JournalEdition journalEdition) {
-		// TODO Auto-generated method stub
-		
-	}
+    public String getCdrom() {
+        return cdrom;
+    }
 
-	@Override
-	public String getPages() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public void setCdrom(String cdrom) {
+        this.cdrom = cdrom;
+    }
 
-	@Override
-	public void setPages(String pages) {
-		// TODO Auto-generated method stub
-		
-	}
+    public JournalEdition getJournalEdition() {
+        return journalEdition;
+    }
 
+    public void setJournalEdition(JournalEdition journalEdition) {
+        this.journalEdition = journalEdition;
+    }
 
+    public String getPages() {
+        return pages;
+    }
 
+    public void setPages(String pages) {
+        this.pages = pages;
+    }
 }

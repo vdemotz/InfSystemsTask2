@@ -1,19 +1,31 @@
 package ch.ethz.globis.isk.persistence;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import ch.ethz.globis.isk.domain.MasterThesis;
+import ch.ethz.globis.isk.domain.jpa.JpaMasterThesis;
+import ch.ethz.globis.isk.util.Filter;
+import ch.ethz.globis.isk.util.Operator;
 
 public class JpaMasterThesisDao extends JpaDao<String, MasterThesis> implements MasterThesisDao {
 
-	@Override
-	public MasterThesis createEntity() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    protected Class<JpaMasterThesis> getStoredClass() {
+        return JpaMasterThesis.class;
+    }
 
-	@Override
-	public MasterThesis findOneByTitle(String title) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public MasterThesis findOneByTitle(String title) {
+        Map<String, Filter> filterMap = new HashMap<>();
+        filterMap.put("title", new Filter(Operator.EQUAL, title));
+        //TODO Well...
+        return findOneByFilter(filterMap);
+    }
+
+    @Override
+    public MasterThesis createEntity() {
+        return new JpaMasterThesis();
+    }
 
 }

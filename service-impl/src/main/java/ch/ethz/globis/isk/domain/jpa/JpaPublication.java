@@ -1,82 +1,105 @@
 package ch.ethz.globis.isk.domain.jpa;
 
-import java.util.Set;
-
 import ch.ethz.globis.isk.domain.Person;
 import ch.ethz.globis.isk.domain.Publication;
+import java.util.HashSet;
+import java.util.Set;
 
 public class JpaPublication implements Publication {
 
-	@Override
-	public String getId() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    private String id;
 
-	@Override
-	public void setId(String id) {
-		// TODO Auto-generated method stub
-		
-	}
+    private String title;
 
-	@Override
-	public String getTitle() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    private String electronicEdition;
+    private int year;
 
-	@Override
-	public void setTitle(String title) {
-		// TODO Auto-generated method stub
-		
-	}
+    private Set<Person> authors;
 
-	@Override
-	public Set<Person> getAuthors() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    private Set<Person> editors;
 
-	@Override
-	public void setAuthors(Set<Person> authors) {
-		// TODO Auto-generated method stub
-		
-	}
+    public JpaPublication() {
+        editors = new HashSet<>();
+        authors = new HashSet<>();
+    }
 
-	@Override
-	public Set<Person> getEditors() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public String getId() {
+        return id;
+    }
 
-	@Override
-	public void setEditors(Set<Person> editors) {
-		// TODO Auto-generated method stub
-		
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	@Override
-	public Integer getYear() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	@Override
-	public void setYear(Integer year) {
-		// TODO Auto-generated method stub
-		
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	@Override
-	public String getElectronicEdition() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public Set<Person> getAuthors() {
+        return authors;
+    }
 
-	@Override
-	public void setElectronicEdition(String electronicEdition) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void setAuthors(Set<Person> authors) {
+        this.authors = authors;
+    }
 
+    public Set<Person> getEditors() {
+        return editors;
+    }
+
+    @Override
+    public void setEditors(Set<Person> editors) {
+        this.editors = editors;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public String getElectronicEdition() {
+        return electronicEdition;
+    }
+
+    public void setElectronicEdition(String electronicEdition) {
+        this.electronicEdition = electronicEdition;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("Publication{");
+        sb.append("key='").append(getId()).append('\'');
+        sb.append(", title='").append(title).append('\'');
+        sb.append(", year=").append(year);
+        sb.append('}');
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Publication)) return false;
+
+        Publication that = (Publication) o;
+
+        if (!getId().equals(that.getId())) return false;
+        if (getTitle() != null ? !getTitle().equals(that.getTitle()) : that.getTitle() != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId().hashCode();
+        result = 31 * result + (getTitle() != null ? getTitle().hashCode() : 0);
+        return result;
+    }
 }

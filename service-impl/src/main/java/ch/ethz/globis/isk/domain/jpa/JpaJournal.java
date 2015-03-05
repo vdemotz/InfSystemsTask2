@@ -1,52 +1,45 @@
 package ch.ethz.globis.isk.domain.jpa;
 
-import java.util.Set;
-
 import ch.ethz.globis.isk.domain.Journal;
 import ch.ethz.globis.isk.domain.JournalEdition;
+import java.util.HashSet;
+import java.util.Set;
 
 public class JpaJournal implements Journal {
 
-	@Override
-	public String getId() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    private String id;
+    private String name;
 
-	@Override
-	public void setId(String id) {
-		// TODO Auto-generated method stub
-		
-	}
+    private Set<JournalEdition> editions;
 
-	@Override
-	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public JpaJournal() {
+        this.editions = new HashSet<>();
+    }
 
-	@Override
-	public void setName(String name) {
-		// TODO Auto-generated method stub
-		
-	}
+    public String getId() {
+        return id;
+    }
 
-	@Override
-	public Set<JournalEdition> getEditions() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	@Override
-	public void addEdition(JournalEdition edition) {
-		// TODO Auto-generated method stub
-		
-	}
+    public String getName() {
+        return name;
+    }
 
-	@Override
-	public void setEditions(Set<JournalEdition> editions) {
-		// TODO Auto-generated method stub
-		
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public Set<JournalEdition> getEditions() {
+        return editions;
+    }
+
+    public void addEdition(JournalEdition edition) {
+        editions.add(edition);
+    }
+    public void setEditions(Set<JournalEdition> editions) {
+        this.editions = editions;
+    }
 }

@@ -1,82 +1,68 @@
 package ch.ethz.globis.isk.domain.jpa;
 
-import ch.ethz.globis.isk.domain.InProceedings;
 import ch.ethz.globis.isk.domain.PhdThesis;
 import ch.ethz.globis.isk.domain.Publisher;
 import ch.ethz.globis.isk.domain.School;
 
 public class JpaPhdThesis extends JpaPublication implements PhdThesis {
 
-	@Override
-	public String getIsbn() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    private Integer month;
+    private String note;
+    private Integer number;
+    private String isbn;
 
-	@Override
-	public void setIsbn(String isbn) {
-		// TODO Auto-generated method stub
-		
-	}
+    private Publisher publisher;
 
-	@Override
-	public Integer getMonth() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    private School school;
 
-	@Override
-	public void setMonth(Integer month) {
-		// TODO Auto-generated method stub
-		
-	}
+    public JpaPhdThesis() {
+    }
 
-	@Override
-	public String getNote() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public String getIsbn() {
+        return isbn;
+    }
 
-	@Override
-	public void setNote(String note) {
-		// TODO Auto-generated method stub
-		
-	}
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
 
-	@Override
-	public Integer getNumber() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public Integer getMonth() {
+        return month;
+    }
 
-	@Override
-	public void setNumber(Integer number) {
-		// TODO Auto-generated method stub
-		
-	}
+    public void setMonth(Integer month) {
+        this.month = month;
+    }
 
-	@Override
-	public Publisher getPublisher() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public String getNote() {
+        return note;
+    }
 
-	@Override
-	public void setPublisher(Publisher publisher) {
-		// TODO Auto-generated method stub
-		
-	}
+    public void setNote(String note) {
+        this.note = note;
+    }
 
-	@Override
-	public School getSchool() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public Integer getNumber() {
+        return number;
+    }
 
-	@Override
-	public void setSchool(School school) {
-		// TODO Auto-generated method stub
-		
-	}
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
 
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
+    }
+
+    public School getSchool() {
+        return school;
+    }
+
+    public void setSchool(School school) {
+        this.school = school;
+    }
 }
