@@ -4,7 +4,7 @@ import ch.ethz.globis.isk.domain.DomainObject;
 
 public class JpaDomainObject implements DomainObject {
 
-	private String id;
+	protected String id;
 	
 	@Override
 	public String getId() {

@@ -46,9 +46,10 @@ public abstract class JpaDao<K extends Serializable, T extends DomainObject> imp
 
     @Override
     public T findOne(K id) {
-    	JpaDomainObject example = new JpaDomainObject();
-    	example.setId(id.toString());
-    	ObjectSet<T> os = oc.queryByExample(example);
+    	Query query = oc.query();
+    	query.constrain(this.getStoredClass());
+    	query.descend("id").constrain(id);
+    	ObjectSet<T> os = query.execute();
     	return os.get(0);
     }
 
@@ -100,7 +101,7 @@ public abstract class JpaDao<K extends Serializable, T extends DomainObject> imp
     protected abstract <S extends T> Class<S> getStoredClass();
 
     protected List<T> queryByReferenceIdOrderByYear(String entity, String referenceName, String referenceId) {
-    	if (! this.getStoredClass().getName().toLowerCase().startsWith(entity.toLowerCase())){
+    	if (! this.getStoredClass().getName().toLowerCase().contains(entity.toLowerCase())){
     		throw new IllegalArgumentException();
     	}
     	Query query = oc.query();
@@ -109,7 +110,7 @@ public abstract class JpaDao<K extends Serializable, T extends DomainObject> imp
     	return query.execute();
     }
     
-    private ObjectSet<T> queryByFilter(Map<String, Filter> filterMap){
+    private List<T> queryByFilter(Map<String, Filter> filterMap){
     	Query query = oc.query();
     	Constraint constraints = query.constrain(this.getStoredClass());
     	if (filterMap != null){
@@ -117,7 +118,9 @@ public abstract class JpaDao<K extends Serializable, T extends DomainObject> imp
 	    		 constraints.and(query.descend(attribute).constrain(filterMap.get(attribute).getValue()));
 	    	}
     	}
-    	return query.execute();
+    	List<T> result = query.execute();
+    	return result.subList(0, 5);
+    	//TODO: make this return all, add sublist shit to other parts
     }
     
     ////

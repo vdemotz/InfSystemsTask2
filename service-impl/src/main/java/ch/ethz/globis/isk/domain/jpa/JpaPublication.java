@@ -16,6 +16,7 @@ public class JpaPublication extends JpaDomainObject implements Publication {
     private Set<Person> authors;
 
     private Set<Person> editors;
+    
 
     public JpaPublication() {
         editors = new HashSet<>();
@@ -87,10 +88,10 @@ public class JpaPublication extends JpaDomainObject implements Publication {
         return true;
     }
 
-    @Override
-    public int hashCode() {
-        int result = getId().hashCode();
-        result = 31 * result + (getTitle() != null ? getTitle().hashCode() : 0);
-        return result;
-    }
+    //@Override
+    //public int hashCode() {
+    //    int result = getId().hashCode();
+    //    result = 31 * result + (getTitle() != null ? getTitle().hashCode() : 0);
+    //    return result;
+    //}
 }

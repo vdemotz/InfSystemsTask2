@@ -48,16 +48,6 @@ public class PersistenceConfig {
     Environment environment;
     
     /**
-     * A reference to the ObjectContainer.
-     */
-    @Bean(name = OC_QUALIFIER)
-    public ObjectContainer objectContainer(){
-    	EmbeddedConfiguration config = Db4oEmbedded.newConfiguration();
-    	config.common().add(new TransparentActivationSupport());
-    	return Db4oEmbedded.openFile(config, productionDatabaseName());
-    }
-    
-    /**
      * Qualifier for the ObjectContainer object.
      */
     public static final String OC_QUALIFIER = "objectContainer";
@@ -110,5 +100,13 @@ public class PersistenceConfig {
     @Profile({"production", "import"})
     String productionDatabaseName() {
         return "dblp";
+    }
+    
+    /**
+     * A reference to the ObjectContainer.
+     */
+    @Bean(name = OC_QUALIFIER)
+    public ObjectContainer objectContainer(String databaseName){
+    	return Db4oEmbedded.openFile(databaseName);
     }
 }
