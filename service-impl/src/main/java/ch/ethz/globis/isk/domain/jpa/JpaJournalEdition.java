@@ -3,12 +3,12 @@ package ch.ethz.globis.isk.domain.jpa;
 import ch.ethz.globis.isk.domain.Article;
 import ch.ethz.globis.isk.domain.Journal;
 import ch.ethz.globis.isk.domain.JournalEdition;
+
 import java.util.HashSet;
 import java.util.Set;
 
-public class JpaJournalEdition implements JournalEdition {
+public class JpaJournalEdition extends JpaDomainObject implements JournalEdition {
 
-    private String id;
 
     private String number;
     private String volume;
@@ -20,14 +20,6 @@ public class JpaJournalEdition implements JournalEdition {
 
     public JpaJournalEdition() {
         publications = new HashSet<>();
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public void addArticle(Article publication) {

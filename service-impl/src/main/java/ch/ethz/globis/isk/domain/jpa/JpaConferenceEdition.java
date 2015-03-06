@@ -4,9 +4,7 @@ import ch.ethz.globis.isk.domain.Conference;
 import ch.ethz.globis.isk.domain.ConferenceEdition;
 import ch.ethz.globis.isk.domain.Proceedings;
 
-public class JpaConferenceEdition implements ConferenceEdition {
-
-    private String id;
+public class JpaConferenceEdition extends JpaDomainObject implements ConferenceEdition {
 
     private Integer year;
 
@@ -15,14 +13,6 @@ public class JpaConferenceEdition implements ConferenceEdition {
     private Proceedings proceedings;
 
     public JpaConferenceEdition() {
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public Conference getConference() {

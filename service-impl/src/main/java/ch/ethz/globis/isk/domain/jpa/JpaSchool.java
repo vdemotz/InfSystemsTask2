@@ -2,26 +2,18 @@ package ch.ethz.globis.isk.domain.jpa;
 
 import ch.ethz.globis.isk.domain.Publication;
 import ch.ethz.globis.isk.domain.School;
+
 import java.util.HashSet;
 import java.util.Set;
 
-public class JpaSchool implements School {
+public class JpaSchool extends JpaDomainObject implements School {
 
-    private String id;
     private String name;
 
     private Set<Publication> publications;
 
     public JpaSchool() {
         publications = new HashSet<>();
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -45,8 +37,8 @@ public class JpaSchool implements School {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("School{");
-        sb.append("id=").append(id);
-        sb.append(", name='").append(name).append('\'');
+        sb.append("id=").append(getId());
+        sb.append(", name='").append(getName()).append('\'');
         sb.append('}');
         return sb.toString();
     }

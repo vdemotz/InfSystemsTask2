@@ -2,26 +2,18 @@ package ch.ethz.globis.isk.domain.jpa;
 
 import ch.ethz.globis.isk.domain.Journal;
 import ch.ethz.globis.isk.domain.JournalEdition;
+
 import java.util.HashSet;
 import java.util.Set;
 
-public class JpaJournal implements Journal {
+public class JpaJournal extends JpaDomainObject implements Journal {
 
-    private String id;
     private String name;
 
     private Set<JournalEdition> editions;
 
     public JpaJournal() {
         this.editions = new HashSet<>();
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getName() {

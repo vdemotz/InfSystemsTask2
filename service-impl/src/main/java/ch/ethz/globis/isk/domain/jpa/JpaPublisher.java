@@ -6,23 +6,14 @@ import ch.ethz.globis.isk.domain.Publisher;
 import java.util.HashSet;
 import java.util.Set;
 
-public class JpaPublisher implements Publisher {
+public class JpaPublisher extends JpaDomainObject implements Publisher {
 
-    private String id;
     private String name;
 
     private Set<Publication> publications;
 
     public JpaPublisher() {
         publications = new HashSet<>();
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -46,8 +37,8 @@ public class JpaPublisher implements Publisher {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("Publisher{");
-        sb.append("id=").append(id);
-        sb.append(", name='").append(name).append('\'');
+        sb.append("id=").append(getId());
+        sb.append(", name='").append(getName()).append('\'');
         sb.append('}');
         return sb.toString();
     }

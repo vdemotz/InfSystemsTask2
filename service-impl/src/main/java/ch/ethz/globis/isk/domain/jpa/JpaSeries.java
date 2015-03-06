@@ -7,23 +7,14 @@ import ch.ethz.globis.isk.domain.Series;
 import java.util.HashSet;
 import java.util.Set;
 
-public class JpaSeries implements Series {
+public class JpaSeries extends JpaDomainObject implements Series {
 
-    private String id;
     private String name;
 
     private Set<Publication> publications;
 
     public JpaSeries() {
         publications = new HashSet<>();
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -47,8 +38,8 @@ public class JpaSeries implements Series {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("Series{");
-        sb.append(", id='").append(id).append('\'');
-        sb.append(", name='").append(name).append('\'');
+        sb.append(", id='").append(getId()).append('\'');
+        sb.append(", name='").append(getName()).append('\'');
         sb.append('}');
         return sb.toString();
     }

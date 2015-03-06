@@ -50,11 +50,11 @@ public class PersistenceConfig {
     /**
      * A reference to the ObjectContainer.
      */
-    @Bean
-    public ObjectContainer objectContainer(String db4oFilename){
+    @Bean(name = OC_QUALIFIER)
+    public ObjectContainer objectContainer(){
     	EmbeddedConfiguration config = Db4oEmbedded.newConfiguration();
     	config.common().add(new TransparentActivationSupport());
-    	return Db4oEmbedded.openFile(config, db4oFilename);
+    	return Db4oEmbedded.openFile(config, productionDatabaseName());
     }
     
     /**

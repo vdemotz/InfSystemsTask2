@@ -2,12 +2,11 @@ package ch.ethz.globis.isk.domain.jpa;
 
 import ch.ethz.globis.isk.domain.Person;
 import ch.ethz.globis.isk.domain.Publication;
+
 import java.util.HashSet;
 import java.util.Set;
 
-public class JpaPublication implements Publication {
-
-    private String id;
+public class JpaPublication extends JpaDomainObject implements Publication {
 
     private String title;
 
@@ -21,14 +20,6 @@ public class JpaPublication implements Publication {
     public JpaPublication() {
         editors = new HashSet<>();
         authors = new HashSet<>();
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getTitle() {

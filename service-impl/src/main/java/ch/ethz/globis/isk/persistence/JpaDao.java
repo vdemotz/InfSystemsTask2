@@ -1,6 +1,7 @@
 package ch.ethz.globis.isk.persistence;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -10,11 +11,14 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import com.db4o.ObjectContainer;
+import com.db4o.ObjectSet;
+import com.db4o.query.Constraint;
 import com.db4o.query.Predicate;
 import com.db4o.query.Query;
 
 import ch.ethz.globis.isk.config.PersistenceConfig;
 import ch.ethz.globis.isk.domain.DomainObject;
+import ch.ethz.globis.isk.domain.jpa.JpaDomainObject;
 import ch.ethz.globis.isk.util.Filter;
 import ch.ethz.globis.isk.util.OrderFilter;
 
@@ -27,77 +31,93 @@ public abstract class JpaDao<K extends Serializable, T extends DomainObject> imp
 
     @Override
     public long countAllByFilter(Map<String, Filter> filterMap) {
-    	
-//    	//actually, should be recursiv
-//    	Query query = oc.query();
-//    	query.constrain(this.getClass());
-//    	String[] set = (String[]) filterMap.keySet().toArray();
-//    	for (int i = 0; i < set.length; i++) {
-//    		query.descend(set[i]).constrain(filterMap.get(set[i]));
-//    		
-//    	}
-//    	
-//    	return query.execute().size();
-    	return -1;
+    	return queryByFilter(filterMap).size();
     }
 
     @Override
     public long count() {
-    	return -1;
+    	return queryByFilter(new HashMap<String, Filter>()).size();
     }
 
     @Override
     public Iterable<T> findAll() {
-        return null;
+    	return queryByFilter(new HashMap<String, Filter>());
     }
 
     @Override
     public T findOne(K id) {
-    	return null;
+    	JpaDomainObject example = new JpaDomainObject();
+    	example.setId(id.toString());
+    	ObjectSet<T> os = oc.queryByExample(example);
+    	return os.get(0);
     }
 
     @Override
     public T findOneByFilter(Map<String, Filter> filterMap) {
-    	return null;
+    	return queryByFilter(filterMap).get(0);
     }
 
     @Override
     public Iterable<T> findAllByFilter(Map<String, Filter> filterMap) {
-    	return null;
+    	return queryByFilter(filterMap);
     }
 
     @Override
     public Iterable<T> findAllByFilter(Map<String, Filter> filterMap, int start, int size) {
-    	return null;
+    	//return null;
+    	return queryByFilter(filterMap);
     }
 
     @Override
     public Iterable<T> findAllByFilter(Map<String, Filter> filterMap,
                                        List<OrderFilter> orderList,
                                        int start, int size) {
-    	return null;
+    	//return null;
+    	return queryByFilter(filterMap);
     }
 
     @Override
     public Iterable<T> findAllByFilter(Map<String, Filter> filterMap,
                                        List<OrderFilter> orderList) {
-    	return null;
+    	//return null;
+    	return queryByFilter(filterMap);
     }
 
     @Override
     public <S extends T> Iterable<S> insert(Iterable<S> entities) {
-    	return null;
+    	for (S entity : entities){
+    		insert(entity);
+    	}
+    	return entities;
     }
 
     @Override
     public <S extends T> S insert(S entity) {
-    	return null;
+    	oc.store(entity);
+    	return entity;
     }
 
     protected abstract <S extends T> Class<S> getStoredClass();
 
     protected List<T> queryByReferenceIdOrderByYear(String entity, String referenceName, String referenceId) {
-    	return null;
+    	if (! this.getStoredClass().getName().toLowerCase().startsWith(entity.toLowerCase())){
+    		throw new IllegalArgumentException();
+    	}
+    	Query query = oc.query();
+    	query.constrain(this.getStoredClass());
+    	query.descend(referenceName).descend("id").constrain(referenceId);
+    	return query.execute();
+    }
+    
+    private ObjectSet<T> queryByFilter(Map<String, Filter> filterMap){
+    	Query query = oc.query();
+    	Constraint constraints = query.constrain(this.getStoredClass());
+    	if (filterMap != null){
+	    	for (String attribute : filterMap.keySet()){
+	    		 constraints.and(query.descend(attribute).constrain(filterMap.get(attribute).getValue()));
+	    	}
+    	}
+    	return query.execute();
     }
     
     ////

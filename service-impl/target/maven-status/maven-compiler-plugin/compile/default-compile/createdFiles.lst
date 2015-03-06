@@ -44,6 +44,7 @@ ch/ethz/globis/isk/service/ConferenceServiceImpl.class
 ch/ethz/globis/isk/service/cache/RequestResultCache.class
 ch/ethz/globis/isk/persistence/JpaArticleDao.class
 ch/ethz/globis/isk/persistence/JpaPersonDao.class
+ch/ethz/globis/isk/domain/jpa/JpaDomainObject.class
 ch/ethz/globis/isk/persistence/JpaPublisherDao.class
 ch/ethz/globis/isk/persistence/JpaProceedingsDao.class
 ch/ethz/globis/isk/service/InCollectionServiceImpl.class

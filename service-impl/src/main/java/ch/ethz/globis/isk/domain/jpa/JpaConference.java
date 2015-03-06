@@ -6,23 +6,14 @@ import ch.ethz.globis.isk.domain.ConferenceEdition;
 import java.util.HashSet;
 import java.util.Set;
 
-public class JpaConference implements Conference {
+public class JpaConference extends JpaDomainObject implements Conference {
 
-    private String id;
     private String name;
 
     Set<ConferenceEdition> editions;
 
     public JpaConference() {
         editions = new HashSet<>();
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getName() {
