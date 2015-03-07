@@ -101,18 +101,6 @@ public abstract class JpaDao<K extends Serializable, T extends DomainObject> imp
     }
 
     protected abstract <S extends T> Class<S> getStoredClass();
-
-    protected List<T> queryByReferenceIdOrderByYear(String entity, String referenceName, String referenceId) {
-    	if (! this.getStoredClass().getName().toLowerCase().contains(entity.toLowerCase())){
-    		throw new IllegalArgumentException();
-    	}
-    	Query query = oc.query();
-    	query.constrain(this.getStoredClass());
-    	query.descend(referenceName).descend("id").constrain(referenceId);
-    	query.descend("year").orderAscending();
-    	List<T> result = query.execute();
-    	return result;
-    }
     
     private List<T> queryByFilter(Map<String, Filter> filterMap, List<OrderFilter> orderList){
     	Query query = oc.query();

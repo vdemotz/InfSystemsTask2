@@ -87,11 +87,4 @@ public class JpaPublication extends JpaDomainObject implements Publication {
 
         return true;
     }
-
-    //@Override
-    //public int hashCode() {
-    //    int result = getId().hashCode();
-    //    result = 31 * result + (getTitle() != null ? getTitle().hashCode() : 0);
-    //    return result;
-    //}
 }
