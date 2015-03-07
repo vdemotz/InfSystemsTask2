@@ -4,7 +4,10 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.db4o.query.Query;
+
 import ch.ethz.globis.isk.domain.ConferenceEdition;
+import ch.ethz.globis.isk.domain.JournalEdition;
 import ch.ethz.globis.isk.domain.jpa.JpaConferenceEdition;
 
 @Repository
@@ -22,13 +25,12 @@ public class JpaConferenceEditionDao extends JpaDao<String, ConferenceEdition> i
 
     @Override
     public List<ConferenceEdition> findByConferenceOrderedByYear(String conferenceId) {
-//        String findAuthorsQuery = "Select ce from ConferenceEdition ce JOIN ce.conference c " +
-//                "WHERE c.id = :conferenceId ORDER BY ce.year ASC";
-//        Query query = em.createQuery(findAuthorsQuery);
-//        query.setParameter("conferenceId", conferenceId);
-//        return query.getResultList();
-    	//TODO implement with query by example (or other)
-    	return null;
+    	Query query = oc.query();
+    	query.constrain(this.getStoredClass());
+    	query.descend("conference").descend("id").constrain(conferenceId);
+    	query.descend("year").orderAscending();
+    	List<ConferenceEdition> result = query.execute();
+    	return result;
     }
 
 }

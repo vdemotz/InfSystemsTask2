@@ -1,3 +1,5 @@
+rm dblp
+
 #XML Location
 XML_FILE='dblp_filtered.xml'
 
