@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="15" failures="0" name="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" time="1.886" errors="0" skipped="0">
+<testsuite tests="15" failures="0" name="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" time="1.791" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib"/>
@@ -62,19 +62,19 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" name="test_8_retrievePublicationsBySeries" time="1.646"/>
-  <testcase classname="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" name="test_9_retrievePublicationsBySchool" time="0.031"/>
-  <testcase classname="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" name="test_5_insertJournalInfo" time="0.031"/>
-  <testcase classname="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" name="test_10_retrievePublicationsByPublisher" time="0.015"/>
-  <testcase classname="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" name="test_1_insertConferenceInfo" time="0.033"/>
-  <testcase classname="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" name="test_11_retrieveArticlesByJournalEdition" time="0.01"/>
-  <testcase classname="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" name="test_15_retrieveConferenceEditionsByConference" time="0.014"/>
-  <testcase classname="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" name="test_13_retrieveInProceedingsByProceedings" time="0.01"/>
-  <testcase classname="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" name="test_4_insertSeries" time="0.012"/>
-  <testcase classname="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" name="test_14_retrieveJournalEditionsByJournal" time="0.01"/>
-  <testcase classname="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" name="test_3_insertSchool" time="0.014"/>
-  <testcase classname="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" name="test_2_insertPublisher" time="0.011"/>
-  <testcase classname="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" name="test_12_retrieveInCollectionsByBook" time="0.018"/>
-  <testcase classname="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" name="test_6_retrievePublicationsByAuthor" time="0.009"/>
-  <testcase classname="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" name="test_7_retrievePublicationsByEditor" time="0.022"/>
+  <testcase classname="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" name="test_8_retrievePublicationsBySeries" time="1.543"/>
+  <testcase classname="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" name="test_9_retrievePublicationsBySchool" time="0.036"/>
+  <testcase classname="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" name="test_5_insertJournalInfo" time="0.024"/>
+  <testcase classname="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" name="test_10_retrievePublicationsByPublisher" time="0.012"/>
+  <testcase classname="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" name="test_1_insertConferenceInfo" time="0.029"/>
+  <testcase classname="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" name="test_11_retrieveArticlesByJournalEdition" time="0.008"/>
+  <testcase classname="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" name="test_15_retrieveConferenceEditionsByConference" time="0.022"/>
+  <testcase classname="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" name="test_13_retrieveInProceedingsByProceedings" time="0.011"/>
+  <testcase classname="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" name="test_4_insertSeries" time="0.011"/>
+  <testcase classname="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" name="test_14_retrieveJournalEditionsByJournal" time="0.026"/>
+  <testcase classname="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" name="test_3_insertSchool" time="0.018"/>
+  <testcase classname="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" name="test_2_insertPublisher" time="0.014"/>
+  <testcase classname="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" name="test_12_retrieveInCollectionsByBook" time="0.021"/>
+  <testcase classname="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" name="test_6_retrievePublicationsByAuthor" time="0.008"/>
+  <testcase classname="ch.ethz.globis.isk.service.Db4oPublicationServiceTest" name="test_7_retrievePublicationsByEditor" time="0.008"/>
 </testsuite>

@@ -27,18 +27,21 @@ public abstract class Db4oDao<K extends Serializable, T extends DomainObject> im
 
     @Override
     public long countAllByFilter(Map<String, Filter> filterMap) {
+    	//TODO : Shouldn't we constrain by the type? (isn't any test for this method?)
     	List<T> result =  queryByFilter(filterMap, null);
     	return result != null ? result.size() : null;
     }
 
     @Override
     public long count() {
+    	//TODO : Shouldn't we constrain by the type? (isn't any test for this method?)
     	List<T> result = queryByFilter(null, null);
     	return result != null ? result.size() : null;
     }
 
     @Override
     public Iterable<T> findAll() {
+    	//TODO : Shouldn't we constrain by the type? (isn't any test for this method?)
     	return queryByFilter(null, null);
     }
 
@@ -48,13 +51,13 @@ public abstract class Db4oDao<K extends Serializable, T extends DomainObject> im
     	query.constrain(this.getStoredClass());
     	query.descend(PersistenceAttributes.ID.toString()).constrain(id);
     	ObjectSet<T> os = query.execute();
-    	return os.get(0);
+    	return os != null && os.size() > 0 ? os.get(0) : null;
     }
 
     @Override
     public T findOneByFilter(Map<String, Filter> filterMap) {
     	List<T> result = queryByFilter(filterMap, null);
-    	return result != null ? result.get(0) : null;
+    	return result != null && result.size() > 0 ? result.get(0) : null;
     }
 
     @Override
@@ -96,7 +99,7 @@ public abstract class Db4oDao<K extends Serializable, T extends DomainObject> im
 
     protected abstract <S extends T> Class<S> getStoredClass();
     
-    private List<T> queryByFilter(Map<String, Filter> filterMap, List<OrderFilter> orderList){
+    private List<T> queryByFilter(Map<String, Filter> filterMap, List<OrderFilter> orderList) {
     	Query query = oc.query();
     	query.constrain(this.getStoredClass());
     	if (filterMap != null){

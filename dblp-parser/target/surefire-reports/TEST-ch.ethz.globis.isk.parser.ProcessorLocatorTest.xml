@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ch.ethz.globis.isk.parser.ProcessorLocatorTest" time="0.009" tests="3" errors="0" skipped="0" failures="0">
+<testsuite name="ch.ethz.globis.isk.parser.ProcessorLocatorTest" time="0.008" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib"/>
@@ -63,5 +63,5 @@
   </properties>
   <testcase name="nullProcessorName" classname="ch.ethz.globis.isk.parser.ProcessorLocatorTest" time="0.006"/>
   <testcase name="findProperProcessors" classname="ch.ethz.globis.isk.parser.ProcessorLocatorTest" time="0.001"/>
-  <testcase name="invalidProcessorName" classname="ch.ethz.globis.isk.parser.ProcessorLocatorTest" time="0.002"/>
+  <testcase name="invalidProcessorName" classname="ch.ethz.globis.isk.parser.ProcessorLocatorTest" time="0.001"/>
 </testsuite>
