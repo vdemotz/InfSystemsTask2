@@ -5,6 +5,7 @@ import ch.ethz.globis.isk.persistence.Dao;
 import ch.ethz.globis.isk.service.cache.RequestResultCache;
 import ch.ethz.globis.isk.util.Filter;
 import ch.ethz.globis.isk.util.OrderFilter;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +44,8 @@ public abstract class BaseServiceImpl<K extends Serializable, T extends DomainOb
         return dao().findAllByFilter(filterMap, orderFilterList, start, size);
     }
 
-    public T findOne(K key) {
+    @SuppressWarnings("unchecked")
+	public T findOne(K key) {
         if (key == null) {
             return null;
         }

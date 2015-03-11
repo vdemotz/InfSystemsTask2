@@ -1,22 +1,13 @@
 package ch.ethz.globis.isk.config;
 
-import ch.ethz.globis.isk.domain.*;
-
 import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
-import com.db4o.config.EmbeddedConfiguration;
-import com.db4o.constraints.UniqueFieldValueConstraint;
-import com.db4o.ta.TransparentActivationSupport;
-import com.db4o.ta.TransparentPersistenceSupport;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.core.env.Environment;
-
-import java.io.File;
 
 
 /**
@@ -46,11 +37,6 @@ public class PersistenceConfig {
      */
     @Autowired
     Environment environment;
-    
-    /**
-     * Qualifier for the ObjectContainer object.
-     */
-    public static final String OC_QUALIFIER = "objectContainer";
 
     /**
      * A Boolean bean whose value determines if the database needs to be cleared on
@@ -101,6 +87,11 @@ public class PersistenceConfig {
     String productionDatabaseName() {
         return "dblp";
     }
+    
+    /**
+     * Qualifier for the ObjectContainer object.
+     */
+    public static final String OC_QUALIFIER = "objectContainer";
     
     /**
      * A reference to the ObjectContainer.

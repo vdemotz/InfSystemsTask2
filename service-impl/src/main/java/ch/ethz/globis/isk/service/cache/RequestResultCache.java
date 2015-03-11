@@ -15,7 +15,9 @@ public class RequestResultCache {
 
     public RequestResultCache() {
         map = new LinkedHashMap<Object, Object>() {
-            @Override
+			private static final long serialVersionUID = 1L;
+			@SuppressWarnings("rawtypes")
+			@Override
             protected boolean removeEldestEntry(Map.Entry eldest) {
                 return size() > maxSize;
             }
@@ -25,7 +27,9 @@ public class RequestResultCache {
     public RequestResultCache(final int maxSize) {
         this.maxSize = maxSize;
         map = new LinkedHashMap<Object, Object>() {
-            @Override
+			private static final long serialVersionUID = 1L;
+			@SuppressWarnings("rawtypes")
+			@Override
             protected boolean removeEldestEntry(Map.Entry eldest) {
                 return size() > maxSize;
             }

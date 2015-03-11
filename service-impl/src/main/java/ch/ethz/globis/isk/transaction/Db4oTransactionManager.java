@@ -17,7 +17,7 @@ public class Db4oTransactionManager extends CacheAwareTransactionManager {
 	
 	@Override
     public void rollback() {
-		oc.rollback(); //uh?
+		oc.rollback();
     }
 
     @Override
@@ -27,6 +27,6 @@ public class Db4oTransactionManager extends CacheAwareTransactionManager {
 
     @Override
     public void commit() {
-    	oc.commit(); //uh?
+    	oc.commit();
     }
 }
