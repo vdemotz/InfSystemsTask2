@@ -27,21 +27,18 @@ public abstract class Db4oDao<K extends Serializable, T extends DomainObject> im
 
     @Override
     public long countAllByFilter(Map<String, Filter> filterMap) {
-    	//TODO : Shouldn't we constrain by the type? (isn't any test for this method?)
     	List<T> result =  queryByFilter(filterMap, null);
     	return result != null ? result.size() : null;
     }
 
     @Override
     public long count() {
-    	//TODO : Shouldn't we constrain by the type? (isn't any test for this method?)
     	List<T> result = queryByFilter(null, null);
     	return result != null ? result.size() : null;
     }
 
     @Override
     public Iterable<T> findAll() {
-    	//TODO : Shouldn't we constrain by the type? (isn't any test for this method?)
     	return queryByFilter(null, null);
     }
 
